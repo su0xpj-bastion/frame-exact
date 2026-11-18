@@ -1,0 +1,13 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift --version
+      - run: swift test
+      - run: swift run fe
+      - run: swift run fe faults
+      - name: CLT-only build path still works
+        run: scripts/build-local.sh edl
