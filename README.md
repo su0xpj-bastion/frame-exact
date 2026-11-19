@@ -1,5 +1,32 @@
 # frame-exact
 
+<!-- plain-english:begin -->
+[![ci](https://github.com/su0xpj-bastion/frame-exact/actions/workflows/ci.yml/badge.svg)](https://github.com/su0xpj-bastion/frame-exact/actions/workflows/ci.yml)
+
+## In plain English
+
+**What it is.** The timing engine behind a video editor, plus the tests that keep it exact.
+North American TV runs at 29.97 frames per second, not 30. To keep the on-screen clock matching
+real time, editors use "drop-frame" timecode, which skips some frame *numbers* every minute.
+Get the rule slightly wrong and a one-hour programme ends 3.6 seconds out. Captions drift and
+ads start late.
+
+**Why it matters.** Editors spot a one-frame slip at a cut, or lip-sync that drifts after an
+hour. A "does it play" test catches neither. These tests do.
+
+**What I built.**
+- A small Swift edit engine: timecode at 8 frame rates; trim, split, ripple and lift; speed changes; 48 kHz audio sample sync; and EDL export (the edit list a TV station or colourist receives).
+- 20 checks pinned to hard facts. For example, one hour at 29.97 drop-frame is exactly 107,892 frames.
+- 8 deliberately planted bugs. The suite proves each one is caught by exactly the checks meant to catch it (the "fault matrix").
+
+**For a tech lead.** Swift, XCTest, rational time (no floating-point drift), golden EDL in
+CMX3600 format with M2 speed lines, CI on GitHub Actions. See the badge above for current status.
+
+---
+
+## Technical detail
+<!-- plain-english:end -->
+
 A tiny edit engine for a video editor, written in **Swift**, and the **XCTest** suite that keeps it frame-accurate: SMPTE timecode (drop-frame and non-drop), trim, blade split, ripple and lift delete, constant-speed retime, audio sample sync at 48 kHz, and CMX3600 EDL export.
 
 Editors notice a one-frame error at a cut, or a lip-sync drift that only shows up after an hour. A plain "does it render" test catches neither. Every check here has a planted bug it must catch, and the fault matrix proves it.
@@ -54,3 +81,16 @@ Tests/FrameExactTests/     XCTest: one test per check, fault matrix, timecode ed
 - One video track, constant speed. No speed ramps, transitions, multicam, or nested sequences.
 - No decoding or rendering: this tests the edit math, not pixels. AVFoundation export with per-frame hash comparison is the next step.
 - Checked locally with `scripts/build-local.sh` (the Mac it was written on has no Xcode). `swift test` runs on GitHub Actions macOS runners.
+
+<!-- set:begin -->
+---
+
+**Part of a set.** Six small projects, one idea: test media apps with data that carries its own answer, and prove every test catches the bug it was written for.
+
+- **[frame-exact](https://github.com/su0xpj-bastion/frame-exact)**: timecode and edit maths, to the frame
+- [barcode-frames](https://github.com/su0xpj-bastion/barcode-frames): real video edits checked frame by frame
+- [proof-sheet](https://github.com/su0xpj-bastion/proof-sheet): a photo/video app with all 45 workflows tested
+- [enact-probe](https://github.com/su0xpj-bastion/enact-probe): live AI video, measured the way the viewer feels it
+- [vision-gate](https://github.com/su0xpj-bastion/vision-gate): report cards for on-device AI photo features
+- [timeline-ml](https://github.com/su0xpj-bastion/timeline-ml): beat detection and transcript search
+<!-- set:end -->
