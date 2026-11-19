@@ -3,8 +3,6 @@
 <!-- plain-english:begin -->
 [![ci](https://github.com/su0xpj-bastion/frame-exact/actions/workflows/ci.yml/badge.svg)](https://github.com/su0xpj-bastion/frame-exact/actions/workflows/ci.yml)
 
-## In plain English
-
 The timing engine behind a video editor, plus the tests that keep it exact.
 North American TV runs at 29.97 frames per second, not 30. To keep the on-screen clock matching
 real time, editors use "drop-frame" timecode, which skips some frame *numbers* every minute.
