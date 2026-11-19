@@ -19,6 +19,8 @@ hour. A "does it play" test catches neither. These tests do.
 Swift, XCTest, rational time (no floating-point drift), golden EDL in
 CMX3600 format with M2 speed lines, CI on GitHub Actions. See the badge above for current status.
 
+[Test plan](TEST_PLAN.md) · [Bugs found](BUGS.md) · [Test strategy](https://github.com/su0xpj-bastion/proof-sheet/blob/main/docs/TEST_STRATEGY.md)
+
 ---
 
 ## Technical detail
