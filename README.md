@@ -5,21 +5,20 @@
 
 ## In plain English
 
-**What it is.** The timing engine behind a video editor, plus the tests that keep it exact.
+The timing engine behind a video editor, plus the tests that keep it exact.
 North American TV runs at 29.97 frames per second, not 30. To keep the on-screen clock matching
 real time, editors use "drop-frame" timecode, which skips some frame *numbers* every minute.
 Get the rule slightly wrong and a one-hour programme ends 3.6 seconds out. Captions drift and
 ads start late.
 
-**Why it matters.** Editors spot a one-frame slip at a cut, or lip-sync that drifts after an
+Editors spot a one-frame slip at a cut, or lip-sync that drifts after an
 hour. A "does it play" test catches neither. These tests do.
 
-**What I built.**
 - A small Swift edit engine: timecode at 8 frame rates; trim, split, ripple and lift; speed changes; 48 kHz audio sample sync; and EDL export (the edit list a TV station or colourist receives).
 - 20 checks pinned to hard facts. For example, one hour at 29.97 drop-frame is exactly 107,892 frames.
 - 8 deliberately planted bugs. The suite proves each one is caught by exactly the checks meant to catch it (the "fault matrix").
 
-**For a tech lead.** Swift, XCTest, rational time (no floating-point drift), golden EDL in
+Swift, XCTest, rational time (no floating-point drift), golden EDL in
 CMX3600 format with M2 speed lines, CI on GitHub Actions. See the badge above for current status.
 
 ---
@@ -85,7 +84,7 @@ Tests/FrameExactTests/     XCTest: one test per check, fault matrix, timecode ed
 <!-- set:begin -->
 ---
 
-**Part of a set.** Six small projects, one idea: test media apps with data that carries its own answer, and prove every test catches the bug it was written for.
+Six small projects, one idea: test media apps with data that carries its own answer, and prove every test catches the bug it was written for.
 
 - **[frame-exact](https://github.com/su0xpj-bastion/frame-exact)**: timecode and edit maths, to the frame
 - [barcode-frames](https://github.com/su0xpj-bastion/barcode-frames): real video edits checked frame by frame
