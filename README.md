@@ -1,5 +1,7 @@
 # frame-exact
 
+> **Moved.** This project now lives in [app-quality-lab/frame-exact](https://github.com/su0xpj-bastion/app-quality-lab/tree/main/frame-exact), where it is maintained and tested. This repository is archived and read-only.
+
 <!-- plain-english:begin -->
 [![ci](https://github.com/su0xpj-bastion/frame-exact/actions/workflows/ci.yml/badge.svg)](https://github.com/su0xpj-bastion/frame-exact/actions/workflows/ci.yml)
 
